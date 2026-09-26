@@ -1,0 +1,1102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #4d4a42;
+    background: #f7fbf3;
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   🌸 PANTALLAS
+   ========================================== */
+
+.pantalla {
+    display: none;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.pantalla.activa {
+    display: flex;
+}
+
+
+/* ==========================================
+   🌿 FONDO INICIAL
+   ========================================== */
+
+#inicio {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(circle at 20% 20%,
+            rgba(255, 211, 221, 0.75),
+            transparent 35%),
+        radial-gradient(circle at 80% 80%,
+            rgba(190, 224, 194, 0.8),
+            transparent 40%),
+        linear-gradient(135deg,
+            #fff7f4,
+            #eef8ed);
+
+    overflow: hidden;
+}
+
+
+/* ==========================================
+   💌 TARJETA PRINCIPAL
+   ========================================== */
+
+.tarjeta {
+    position: relative;
+    z-index: 5;
+
+    width: min(90%, 600px);
+
+    padding: 55px 45px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    border: 2px solid rgba(169, 202, 170, 0.6);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 60px rgba(94, 120, 91, 0.15),
+        0 8px 30px rgba(211, 146, 162, 0.12);
+
+    backdrop-filter: blur(10px);
+
+    animation: aparecer 1s ease;
+}
+
+.icono-principal {
+    font-size: 52px;
+    margin-bottom: 18px;
+
+    animation: flotar 3s ease-in-out infinite;
+}
+
+.pequeno {
+    font-size: 18px;
+    font-weight: 700;
+
+    color: #779477;
+
+    margin-bottom: 15px;
+}
+
+.tarjeta h1 {
+    font-family: Georgia, serif;
+
+    font-size: clamp(34px, 6vw, 48px);
+
+    line-height: 1.15;
+
+    font-weight: 700;
+
+    color: #51463f;
+
+    margin-bottom: 20px;
+}
+
+.subtitulo {
+    font-size: 19px;
+    font-weight: 600;
+
+    color: #7d746e;
+
+    margin-bottom: 32px;
+}
+
+
+/* ==========================================
+   💗 BOTONES
+   ========================================== */
+
+.botones {
+    position: relative;
+
+    width: min(100%, 430px);
+    height: 170px;
+
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding-top: 35px;
+
+    background: rgba(222, 241, 220, 0.55);
+
+    border: 2px dashed rgba(125, 161, 126, 0.45);
+
+    border-radius: 25px;
+
+    overflow: hidden;
+}
+
+.btn {
+    border: none;
+
+    padding: 17px 30px;
+
+    font-size: 18px;
+    font-weight: 800;
+
+    border-radius: 50px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.btn-si {
+    position: relative;
+    z-index: 3;
+
+    color: white;
+
+    background: linear-gradient(135deg,
+            #e99aaa,
+            #d98296);
+
+    box-shadow:
+        0 8px 20px rgba(217, 130, 150, 0.3);
+}
+
+.btn-si:hover {
+    transform: scale(1.07);
+
+    box-shadow:
+        0 12px 25px rgba(217, 130, 150, 0.4);
+}
+
+.btn-no {
+    position: absolute;
+
+    left: 235px;
+    top: 95px;
+
+    z-index: 4;
+
+    color: #58725b;
+
+    background: #dcefdc;
+
+    border: 2px solid #bdd9be;
+
+    white-space: nowrap;
+
+    transition:
+        left 0.2s ease,
+        top 0.2s ease;
+}
+
+.btn-no:hover {
+    box-shadow:
+        0 8px 18px rgba(91, 125, 94, 0.2);
+}
+
+.nota {
+    margin-top: 18px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #9a8f89;
+
+    font-style: italic;
+}
+
+
+/* ==========================================
+   🌷 DECORACIÓN
+   ========================================== */
+
+.decoracion {
+    position: absolute;
+
+    pointer-events: none;
+
+    opacity: 0.45;
+
+    z-index: 1;
+}
+
+.flor-1 {
+    top: 8%;
+    left: 8%;
+
+    font-size: 60px;
+
+    animation: flotar 4s ease-in-out infinite;
+}
+
+.flor-2 {
+    right: 8%;
+    bottom: 10%;
+
+    font-size: 55px;
+
+    animation: flotar 5s ease-in-out infinite;
+}
+
+.hoja-1 {
+    top: 20%;
+    right: 15%;
+
+    font-size: 45px;
+
+    transform: rotate(-25deg);
+}
+
+.hoja-2 {
+    bottom: 20%;
+    left: 12%;
+
+    font-size: 40px;
+
+    transform: rotate(25deg);
+}
+
+
+/* ==========================================
+   🌸 FLORES QUE CAEN
+   ========================================== */
+
+.petals {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 2;
+}
+
+.petal {
+    position: fixed;
+
+    top: -30px;
+
+    pointer-events: none;
+
+    z-index: 2;
+
+    opacity: 0.3;
+
+    filter: blur(1.5px);
+
+    user-select: none;
+
+    animation: caer linear forwards;
+}
+
+
+/* ==========================================
+   💗 PANTALLA DE CONFIRMACIÓN
+   ========================================== */
+
+#confirmacion {
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(circle at center,
+            #fff1f4,
+            #edf7eb);
+}
+
+.confirmacion-contenido {
+    animation: aparecer 0.8s ease;
+}
+
+.corazones {
+    font-size: 38px;
+
+    color: #d98296;
+
+    letter-spacing: 12px;
+
+    margin-bottom: 25px;
+
+    animation: latido 1.5s infinite;
+}
+
+.confirmacion-contenido h2 {
+    font-family: Georgia, serif;
+
+    font-size: clamp(32px, 6vw, 48px);
+
+    font-weight: 700;
+
+    color: #51463f;
+
+    margin-bottom: 20px;
+}
+
+.confirmacion-contenido p {
+    font-size: 20px;
+
+    font-weight: 600;
+
+    line-height: 1.6;
+
+    color: #77706a;
+}
+
+
+/* ==========================================
+   ⏳ PUNTITOS
+   ========================================== */
+
+.cargando {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 30px;
+}
+
+.cargando span {
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #8fb693;
+
+    animation: puntos 1.2s infinite;
+}
+
+.cargando span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.cargando span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+
+/* ==========================================
+   🌊 INVITACIÓN
+   ========================================== */
+
+#invitacion {
+    display: none;
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(180deg,
+            #fff7f3 0%,
+            #f0f8ed 45%,
+            #e8f3e6 100%);
+
+    padding: 40px 20px 60px;
+}
+
+#invitacion.activa {
+    display: block;
+}
+
+.invitacion-container {
+    width: min(100%, 850px);
+
+    margin: auto;
+}
+
+
+/* ==========================================
+   🌷 HERO
+   ========================================== */
+
+.hero {
+    text-align: center;
+
+    padding: 35px 20px 45px;
+}
+
+.mini-texto {
+    display: inline-block;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    color: #789879;
+
+    margin-bottom: 15px;
+}
+
+.hero h2 {
+    font-family: Georgia, serif;
+
+    font-size: clamp(40px, 8vw, 65px);
+
+    line-height: 1.05;
+
+    font-weight: 700;
+
+    color: #51463f;
+
+    margin-bottom: 25px;
+}
+
+.linea-decorativa {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-bottom: 25px;
+}
+
+.linea-decorativa div {
+    width: 100px;
+    height: 2px;
+
+    background: #a5c5a5;
+}
+
+.linea-decorativa span {
+    color: #d98296;
+
+    font-size: 20px;
+}
+
+.hero>p {
+    max-width: 600px;
+
+    margin: auto;
+
+    font-size: 19px;
+
+    font-weight: 600;
+
+    line-height: 1.7;
+
+    color: #746c67;
+}
+
+
+/* ==========================================
+   🎂 FECHA
+   ========================================== */
+
+.fecha {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+
+    width: fit-content;
+
+    margin: 30px auto 0;
+
+    padding: 18px 30px;
+
+    background: rgba(255, 255, 255, 0.8);
+
+    border: 2px solid #c6ddc5;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 30px rgba(90, 120, 90, 0.1);
+}
+
+.fecha>span {
+    font-size: 25px;
+}
+
+.fecha strong {
+    display: block;
+
+    font-family: Georgia, serif;
+
+    font-size: 25px;
+
+    color: #5e795f;
+}
+
+.fecha small {
+    font-size: 15px;
+
+    font-weight: 700;
+
+    color: #817871;
+}
+
+
+/* ==========================================
+   🌊 TARJETA PLAYA
+   ========================================== */
+
+.playa-card {
+    position: relative;
+
+    text-align: center;
+
+    padding: 40px 30px;
+
+    margin-bottom: 35px;
+
+    background:
+        linear-gradient(135deg,
+            rgba(220, 240, 219, 0.9),
+            rgba(255, 239, 239, 0.9));
+
+    border: 2px solid #c4ddc3;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 15px 40px rgba(87, 118, 88, 0.12);
+
+    overflow: hidden;
+}
+
+.playa-icono {
+    font-size: 55px;
+
+    margin-bottom: 10px;
+}
+
+.playa-card h3 {
+    font-family: Georgia, serif;
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    color: #536d56;
+
+    margin-bottom: 12px;
+}
+
+.playa-card p {
+    max-width: 600px;
+
+    margin: auto;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    line-height: 1.6;
+
+    color: #706b66;
+}
+
+
+/* ==========================================
+   🌿 ITINERARIO
+   ========================================== */
+
+.itinerario {
+    padding: 40px 20px;
+
+    background: rgba(255, 255, 255, 0.7);
+
+    border-radius: 28px;
+
+    border: 2px solid rgba(188, 215, 188, 0.7);
+
+    box-shadow:
+        0 15px 40px rgba(87, 118, 88, 0.08);
+
+    margin-bottom: 35px;
+}
+
+.itinerario>h3 {
+    text-align: center;
+
+    font-family: Georgia, serif;
+
+    font-size: 34px;
+
+    font-weight: 700;
+
+    color: #5c765e;
+
+    margin-bottom: 35px;
+}
+
+.timeline {
+    position: relative;
+
+    max-width: 700px;
+
+    margin: auto;
+}
+
+.timeline::before {
+    content: "";
+
+    position: absolute;
+
+    left: 88px;
+
+    top: 10px;
+    bottom: 10px;
+
+    width: 2px;
+
+    background: #b9d3b9;
+}
+
+.evento {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 65px 45px 1fr;
+
+    align-items: center;
+
+    min-height: 100px;
+
+    margin-bottom: 15px;
+}
+
+.hora {
+    font-size: 16px;
+
+    font-weight: 800;
+
+    color: #718d73;
+
+    text-align: right;
+}
+
+.punto {
+    position: relative;
+
+    z-index: 2;
+
+    width: 16px;
+    height: 16px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    background: #d98fa0;
+
+    border: 4px solid #fff;
+
+    box-shadow:
+        0 0 0 2px #c4ddc3;
+}
+
+.evento-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 18px;
+
+    background: rgba(241, 248, 239, 0.9);
+
+    border-radius: 18px;
+
+    border: 1px solid #d6e7d5;
+}
+
+.emoji {
+    font-size: 28px;
+}
+
+.evento-info h4 {
+    font-size: 18px;
+
+    font-weight: 800;
+
+    color: #536a55;
+
+    margin-bottom: 4px;
+}
+
+.evento-info p {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    line-height: 1.4;
+
+    color: #77716d;
+}
+
+
+/* ==========================================
+   💗 MENSAJE FINAL
+   ========================================== */
+
+.mensaje-final {
+    text-align: center;
+
+    padding: 55px 25px;
+
+    background:
+        linear-gradient(135deg,
+            rgba(255, 238, 242, 0.9),
+            rgba(231, 245, 229, 0.9));
+
+    border-radius: 30px;
+
+    border: 2px solid #cbdcc8;
+
+    box-shadow:
+        0 15px 40px rgba(90, 120, 90, 0.1);
+}
+
+.corazon-final {
+    font-size: 45px;
+
+    color: #d98296;
+
+    margin-bottom: 15px;
+
+    animation: latido 2s infinite;
+}
+
+.mensaje-final h3 {
+    font-family: Georgia, serif;
+
+    font-size: clamp(30px, 6vw, 45px);
+
+    line-height: 1.2;
+
+    font-weight: 700;
+
+    color: #554941;
+
+    margin-bottom: 18px;
+}
+
+.mensaje-final p {
+    font-size: 17px;
+
+    font-weight: 600;
+
+    color: #766e68;
+
+    margin-bottom: 20px;
+}
+
+.firma {
+    font-family: Georgia, serif;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    color: #668268;
+}
+
+footer {
+    text-align: center;
+
+    margin-top: 35px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #82927f;
+}
+
+
+/* ==========================================
+   ✨ ANIMACIONES
+   ========================================== */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes flotar {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+@keyframes latido {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+
+@keyframes puntos {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-5px);
+    }
+}
+
+
+/* ==========================================
+   🌸 CAÍDA DE FLORES
+   ========================================== */
+
+@keyframes caer {
+
+    0% {
+        transform:
+            translateY(-40px) translateX(0) rotate(0deg);
+    }
+
+    25% {
+        transform:
+            translateY(25vh) translateX(20px) rotate(90deg);
+    }
+
+    50% {
+        transform:
+            translateY(50vh) translateX(-15px) rotate(180deg);
+    }
+
+    75% {
+        transform:
+            translateY(75vh) translateX(25px) rotate(270deg);
+    }
+
+    100% {
+        transform:
+            translateY(110vh) translateX(-20px) rotate(360deg);
+    }
+}
+
+
+/* ==========================================
+   📱 CELULAR
+   ========================================== */
+
+@media (max-width: 600px) {
+
+    #inicio {
+        padding: 20px 12px;
+    }
+
+    .tarjeta {
+        width: 94%;
+
+        padding: 40px 20px;
+
+        border-radius: 25px;
+    }
+
+    .icono-principal {
+        font-size: 45px;
+    }
+
+    .pequeno {
+        font-size: 16px;
+    }
+
+    .tarjeta h1 {
+        font-size: 32px;
+    }
+
+    .subtitulo {
+        font-size: 17px;
+    }
+
+
+    /* Zona de botones más pequeña */
+    .botones {
+        width: 100%;
+
+        height: 180px;
+
+        padding-top: 30px;
+    }
+
+    .btn {
+        padding: 15px 23px;
+
+        font-size: 16px;
+    }
+
+    .btn-no {
+        left: 50%;
+        top: 105px;
+
+        transform: translateX(-50%);
+    }
+
+
+    /* Decoraciones */
+    .flor-1 {
+        font-size: 40px;
+
+        top: 5%;
+        left: 2%;
+    }
+
+    .flor-2 {
+        font-size: 40px;
+
+        right: 2%;
+        bottom: 5%;
+    }
+
+    .hoja-1,
+    .hoja-2 {
+        font-size: 30px;
+    }
+
+
+    /* Invitación */
+    #invitacion {
+        padding: 20px 12px 40px;
+    }
+
+    .hero {
+        padding: 25px 10px 35px;
+    }
+
+    .hero h2 {
+        font-size: 40px;
+    }
+
+    .hero>p {
+        font-size: 17px;
+    }
+
+    .fecha {
+        padding: 15px 18px;
+
+        gap: 12px;
+    }
+
+    .fecha strong {
+        font-size: 22px;
+    }
+
+    .fecha small {
+        font-size: 13px;
+    }
+
+
+    .playa-card {
+        padding: 30px 20px;
+    }
+
+    .playa-card h3 {
+        font-size: 28px;
+    }
+
+
+    /* Timeline */
+    .itinerario {
+        padding: 30px 12px;
+    }
+
+    .itinerario>h3 {
+        font-size: 30px;
+    }
+
+    .timeline::before {
+        left: 65px;
+    }
+
+    .evento {
+        grid-template-columns: 50px 30px 1fr;
+    }
+
+    .hora {
+        font-size: 13px;
+    }
+
+    .evento-info {
+        padding: 14px 10px;
+
+        gap: 9px;
+    }
+
+    .emoji {
+        font-size: 23px;
+    }
+
+    .evento-info h4 {
+        font-size: 15px;
+    }
+
+    .evento-info p {
+        font-size: 12px;
+    }
+
+
+    .mensaje-final {
+        padding: 45px 18px;
+    }
+
+    .mensaje-final h3 {
+        font-size: 30px;
+    }
+}
